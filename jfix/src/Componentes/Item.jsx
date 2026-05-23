@@ -1,8 +1,12 @@
-// Item.jsx — representa un solo elemento de la lista
-function Item() {
+import './Item.css'
+
+function Item({ tarea }) {
   return (
-    <article>
-      <p>Soy un item individual de la lista</p>
+    <article className="item">
+      <h3 className="item__texto">{tarea.texto}</h3>
+      <p className="item__estado">
+        {tarea.completada ? 'Completada' : 'Pendiente'}
+      </p>
     </article>
   )
 }
