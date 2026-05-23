@@ -9,5 +9,6 @@ function Lista({ tareas }) {
     </ul>
   )
 }
+ss
 
 export default Lista
