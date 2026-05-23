@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Formulario.css'
 
-function Formulario() {
+function Formulario({ alAgregar }) {
   const [nuevaTarea, setNuevaTarea] = useState("")
 
   const manejarEnvio = (e) => {
@@ -12,7 +12,7 @@ function Formulario() {
       return
     }
 
-    alert(`Tarea capturada: ${nuevaTarea}`)
+    alAgregar(nuevaTarea)
     setNuevaTarea("")
   }
 
