@@ -1,4 +1,5 @@
 // App.jsx — el componente principal que reúne todo
+import { useState } from 'react'
 import Encabezado from './componentes/Encabezado'
 import Formulario from './componentes/Formulario'
 import Lista from './componentes/Lista'
@@ -7,11 +8,8 @@ import PiePagina from './componentes/PiePagina'
 import './App.css'
 
 function App() {
-    const tareaEjemplo = {
-  id: 1,
-  texto: "Estudiar React",
-  completada: false
-}
+
+
  const tareas = [
     { id: 1, texto: "Estudiar React", completada: false },
     { id: 2, texto: "Hacer ejercicio", completada: true },
@@ -21,11 +19,16 @@ function App() {
     <div className="app">
       <Encabezado
   titulo="Mis Tareas"
-  subtitulo="Organiza lo que tienes que hacer hoy"
-/>
-      <Formulario />
+  subtitulo="Organiza lo que tienes que hacer hoy"/>
+    <button
+        onClick={() => setMostrarFormulario(!mostrarFormulario)}
+        className="boton-toggle"
+      >
+        {mostrarFormulario ? 'Ocultar formulario' : 'Agregar tarea'}
+      </button>
+      {mostrarFormulario && <Formulario />}
       <Lista />
-      <Item tarea={tareaEjemplo} />
+      <Item tarea={tareas} />
       <PiePagina />
     </div>
   )
